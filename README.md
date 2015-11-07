@@ -17,11 +17,11 @@ Plugin in jQuery to validate your forms using ajax or not. A validation differen
 * Funciona somente com atributo ID (ex.: ``` <form id="my-form"></form> ```);
 
 ### Usage (examples)
-  * **Include in header your Html**:
+**Include in header your Html**:
 ```html
   <script src="js/jquery.formValidator.js"></script>
 ```
-  * **Form (Html)**:
+**Form (Html)**:
 ```html
     <form name="my-form" id="my-form" method="POST" action="send.php">
         <div class="form-group">
@@ -37,14 +37,14 @@ Plugin in jQuery to validate your forms using ajax or not. A validation differen
         </div>
     </form>
 ```
-  * **JavaScript (examples)**:
-  *** *Case 01*:
+ **JavaScript (examples)**:
+ - Case 01**:
 ```javascript
     $(function(){
         $('#my-form').formValidator();
     });
 ```
-  *** *Case 02*:
+ - Case 02:
 ```javascript
     $(function(){
         $('#my-form').formValidator({
