@@ -16,6 +16,36 @@ Plugin in jQuery to validate your forms using ajax or not. A validation differen
 * Funciona somente com biblioteca jQuery;
 * Funciona somente com atributo ID (ex.: ``` <form id="my-form"></form> ```);
 
+### Options
+Here's a list of available settings (default).
+```javascript
+$("#my-form").formValidator({
+  before: function(){},
+  after: {
+      successValidation: function(){},
+      errorValidation: function(){}
+  },
+  submitEnable: true,
+  confirmSubmit : '',
+  myValidations: [],
+  sending: {
+      type: 'redirect',
+      dataType: 'html',
+      success: function(){},
+      error: function(){}
+  },
+  lang:'pt-br'
+});
+```
+Attribute			  | Type				| Default		| Description
+---						  | ---					| ---				| ---
+`before`		    | *Functions*	| `null`		| Displays the number of stars in a repository.
+`submitEnable`  | *Boolean*		| `true`		| Displays the number of forks in a repository.
+`confirmSubmit`	| *String*		| `empty`		| Displays the number of issues in a repository.
+`myValidations`	| *Array* 		| `null`		| Displays the number of issues in a repository.
+`sending`	      | *Settings* 	| `...`		  | Configurações para definir o modo de envio.
+`lang`	        | *String* 		| `pt-br`		| Idioma em que o plugin irá trabalhar.
+
 ### Usage (examples)
 **Include in header your Html**:
 ```html
@@ -38,19 +68,27 @@ Plugin in jQuery to validate your forms using ajax or not. A validation differen
     </form>
 ```
  **JavaScript (examples)**:
- - Case 01**:
+ - **Case 01**:  
+  *Forma mais simples de se chamar o plugin.*
 ```javascript
     $(function(){
         $('#my-form').formValidator();
     });
 ```
- - Case 02:
+ - **Case 02**:
+  *Desta forma é determinado o tipo de envio "ajax", com os métodos callbacks "success" e "error".*
 ```javascript
     $(function(){
         $('#my-form').formValidator({
             sending: {
                 type: 'ajax',
                 success: function(data){
+                  if(data==1){
+                    alert("Submitted successfully!");
+                  }
+                  else{
+                    alert("Failure to submit!");
+                  }
                 },
                 error: function(){
                 }
