@@ -16,16 +16,45 @@ Plugin in jQuery to validate your forms using ajax or not. A validation differen
 * Funciona somente com biblioteca jQuery;
 * Funciona somente com atributo ID (ex.: ``` <form id="my-form"></form> ```);
 
-### Usage
+### Usage (examples)
   * **Include in header your Html**:
 ```html
   <script src="js/jquery.formValidator.js"></script>
 ```
   * **Form (Html)**:
 ```html
-  <form name="my-form" id="my-form" method="POST" action="send.php">
-    <form>
-    
+    <form name="my-form" id="my-form" method="POST" action="send.php">
+        <div class="form-group">
+            <label>E-mail</label>
+            <input type="text" name="email" data-required="true" data-title="E-mail" />
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="pass" data-required="true" data-title="Password" />
+        </div>
+        <div class="form-group">
+            <button name="pass">Submit</button>
+        </div>
     </form>
-  </form>
+```
+  * **JavaScript (examples)**:
+  *** *Case 01*:
+```javascript
+    $(function(){
+        $('#my-form').formValidator();
+    });
+```
+  *** *Case 02*:
+```javascript
+    $(function(){
+        $('#my-form').formValidator({
+            sending: {
+                type: 'ajax',
+                success: function(data){
+                },
+                error: function(){
+                }
+            }
+        });
+    });
 ```
