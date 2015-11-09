@@ -1,0 +1,28 @@
+{
+  "name": "form-validator-jq",
+  "version": "1.0.0",
+  "description": "Package for form validation using JS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericferreira1992/formValidator.git"
+  },
+  "keywords": [
+    "validator",
+    "forms",
+    "js",
+    "jq",
+    "javascript",
+    "jquery",
+    "validation"
+  ],
+  "author": "Eric Andrade Ferreira <ericferreira1992@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericferreira1992/formValidator/issues"
+  },
+  "homepage": "https://github.com/ericferreira1992/formValidator#readme"
+}
