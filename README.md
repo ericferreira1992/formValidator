@@ -2,19 +2,25 @@
 Plugin in jQuery to validate your forms using ajax or not. A validation differently!
 
 ### Features
-* Validação de qualquer formulário;
-* Não necessita de CSS;
-* Possível criar mensagem de confirmação ao submiter formulário (opcional);
-* Possível submeter em **AJAX** ou padrão;
-* **Callbacks** para o método AJAX (success e error);
-* Permite criar suas próprias validações (personalizados);
-* Métodos específicos e personalizados para Sucesso e Erro de validação;
-* Método para realizar ações **antes** e **depois** para o método AJAX;
-* Disponível em **3 idiomas**: português(**pt-bt**), inglês(**en**), espanhol(**es**);
+* Validation of any form;
+* No need for CSS;
+* Possible create confirmation message to submiter form (optional);
+* Possible submit in AJAX ** ** or standard;
+* **Callbacks** for AJAX method (success and error);
+* Allows you to create your own validations (custom);
+* Specific, personalized methods for success and validation error;
+* Method to perform actions **before** and **after** for AJAX method;
+* Avaiable in **3 languages**: portguese(**pt-bt**), english(**en**), spanish(**es**);
 
-### Particularidades
-* Funciona somente com biblioteca jQuery;
-* Funciona somente com atributo ID (ex.: ``` <form id="my-form"></form> ```);
+---
+
+### Particularities
+* Works with jQuery library;
+* Compatible with any form;
+* Because it is compatible with any form, errors are displayed in an "alert";
+* Works with the ID attribute (ex.: ``` <form id="my-form"></form> ```);
+
+---
 
 ### Options
 Here's a list of available settings (default).
@@ -39,19 +45,33 @@ $("#my-form").formValidator({
 ```
 Attribute			  | Type				| Default		| Description
 ---						  | ---					| ---				| ---
-`before`		    | *Functions*	| `null`		| Displays the number of stars in a repository.
-`submitEnable`  | *Boolean*		| `true`		| Displays the number of forks in a repository.
-`confirmSubmit`	| *String*		| `empty`		| Displays the number of issues in a repository.
-`myValidations`	| *Array* 		| `null`		| Displays the number of issues in a repository.
-`sending`	      | *Settings* 	| `...`		  | Configurações para definir o modo de envio.
-`lang`	        | *String* 		| `pt-br`		| Idioma em que o plugin irá trabalhar.
+`before`		    | *Function*	| `null`		| Activities performed before validation (ex .: loading ...).
+`after  `		    | *Functions*	| `null`		| Activities performed after validation (ex .: remove loading ...).
+`submitEnable`  | *Boolean*		| `true`		| Enable or disable formValidator.
+`confirmSubmit`	| *String*		| `empty`		| Message to ensure that the user really wants to submit.
+`myValidations`	| *Array* 		| `null`		| Lets you create multiple functions to perform special validation (returns a string).
+`sending`	      | *Settings* 	| `...`		  | Settings to set the send mode (ex .: ajax).
+`lang`	        | *String* 		| `pt-br`		| Language in which the plugin will work.
 
-### Usage (examples)
+---
+
+### Usage
 **Include in header your Html**:
 ```html
   <script src="js/jquery.formValidator.js"></script>
 ```
-**Form (Html)**:
+Data Attributes	      | Description
+---						        | ---
+`data-required`		    | With "true" or "" false "reports whether the input is required or not (ex .: ``` <input name="name" data-required="true"/> ```).
+`data-title`		      | Display name for the input, but can be replaced with a label containing the element name (ex .: ``` <input name="name" data-required="true" data-title="Name" /> ```).
+`data-equals`		      | When a field needs to be the same as another, much used in passwords (ex .: ``` <input name="pass" data-required="true" data-title="repass" /> ```).
+
+---
+
+### Examples
+
+**HTML 01 (Form login)**:  
+*Form that exemplifies a login where all fields are required.*
 ```html
     <form name="my-form" id="my-form" method="POST" action="send.php">
         <div class="form-group">
@@ -67,19 +87,20 @@ Attribute			  | Type				| Default		| Description
         </div>
     </form>
 ```
- **JavaScript (examples)**:
- - **Case 01**:  
-  *Forma mais simples de se chamar o plugin.*
+ HTML 01 - **JavaScript**:
+ - **Case** 01:  
+  *Simplest way to call the plugin.*
 ```javascript
     $(function(){
         $('#my-form').formValidator();
     });
 ```
- - **Case 02**:
-  *Desta forma é determinado o tipo de envio "ajax", com os métodos callbacks "success" e "error".*
+ - **Case** 02:  
+  *Thus it is determined consignment type "ajax", with callbacks methods "success" and "error".*
 ```javascript
     $(function(){
         $('#my-form').formValidator({
+            confirmSubmit: 'Are you sure to submit?',
             sending: {
                 type: 'ajax',
                 success: function(data){
@@ -91,8 +112,40 @@ Attribute			  | Type				| Default		| Description
                   }
                 },
                 error: function(){
+                    alert("Failure to submit!");
                 }
             }
         });
+    });
+```
+---
+
+**HTML 02 (Form register)**:  
+*Form that contains a special feature where passwords are required and should be equal.*
+```html
+    <form name="my-form" id="my-form" method="POST" action="send.php">
+        <div class="form-group">
+            <label>E-mail</label>
+            <input type="text" name="email" data-required="true" data-title="E-mail" />
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="pass" data-required="true" data-equals="repass" data-title="Password" />
+        </div>
+        <div class="form-group">
+            <label>Re-Password</label>
+            <input type="password" name="repass" data-required="true" data-title="Re-Password"  />
+        </div>
+        <div class="form-group">
+            <button name="pass">Submit</button>
+        </div>
+    </form>
+```
+ HTML 02 - **JavaScript**:
+ - **Case** 01:  
+  *Simplest way to call the plugin.*
+```javascript
+    $(function(){
+        $('#my-form').formValidator();
     });
 ```
