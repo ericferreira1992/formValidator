@@ -19,9 +19,9 @@ $.fn.formValidator = function(options) {
             success: '',
             error: ''
         },
-        lang:'pt-bt'
+        lang:'pt-br'
     };
-    var settings = $.extend( {}, defaults, options );
+    var settings = $.extend({}, defaults, options);
 
     settings.thisForm = this;
     $(document).on('submit', '#'+settings.thisForm.attr('id'), function(e){
@@ -39,14 +39,13 @@ $.fn.formValidator = function(options) {
             settings.alertaErro = languages[settings.lang].precisam_ser_preenchidos;
             $(this).find('input[data-required="true"], select[data-required="true"], textarea[data-required="true"]').map(function(){
                 if($(this).attr('type')=="radio"){
-                    //Buscar quantidade com o mesmo nome e ver se há algum checkado!!
                     if($(this).prop('checked')==false){
                         if($(this).data("title")!="" && $(this).data("title")!=undefined)
                             var nome = $(this).data("title");
                         else
                             var nome = $(this).parent().children('label').text();
 
-                        var checked = false
+                        var checked = false;
                         $(this).find('input[name="'+$(this).attr("name")+'"]').map(function(){
                             if($(this).prop('checked')==true){
                                 checked =  true;
@@ -114,7 +113,6 @@ $.fn.formValidator = function(options) {
                         else
                             var nomeInput = $(this).parent().children('label').text();
 
-                        settings.alertaErro += "- "+nomeInput+" precisa ter no mínimo "+minCharacters+" caractéres.\n";
                         settings.alertaErro = (languages[settings.lang].precisa_no_minimo_caract).replace('nomeInput', nomeInput).replace('minCharacters', minCharacters);
                     }
                 });
@@ -122,7 +120,7 @@ $.fn.formValidator = function(options) {
 
             if(!settings.erro){
                 if(settings.myValidations.length>0){
-                    settings.alertaErro = languages[settings.lang].valores_invalidos;
+                    settings.alertaErro = languages[settings.lang].ocorreu_erro;
                     for(var i=0; i<settings.myValidations.length; i++){
                         if(typeof settings.myValidations[i] == 'function'){
                             var msg = settings.myValidations[i].call(this);
@@ -186,12 +184,26 @@ $.fn.formValidator = function(options) {
     }
 
     var languages = {
-        'pt-bt':{
+        'pt-br':{
             'precisam_ser_preenchidos':"Os seguintes campos precisam ser preenchidos:\n",
-            'valores_invalidos':"Ops, ocorreram alguns erros:\n",
+            'valores_invalidos':"Os valores dos campos a seguir são inválidos:\n",
             'precisam_ser_iguais':"Os campos abaixo precisam ser iguais:\n",
-            'precisa_no_minimo_caract':"- nomeInput precisa ter no mínimo minCharacters caractéres.\n",
+            'precisa_no_minimo_caract':"- nomeInput precisa ter no mínimo minCharacters caracteres.\n",
             'ocorreu_erro':"Ops, ocorreram alguns erros:\n"
+        },
+        'en':{
+            'precisam_ser_preenchidos':"The following fields need to be filled:\n",
+            'valores_invalidos':"The values of the following fields are invalid:\n",
+            'precisam_ser_iguais':"The fields must match:\n",
+            'precisa_no_minimo_caract':"- Input name must be at least min Characters characters.\n",
+            'ocorreu_erro':"Oops, there were some errors:\n"
+        },
+        'es':{
+            'precisam_ser_preenchidos':"Los siguientes campos deben ser llenados:\n",
+            'valores_invalidos':"Los valores de los campos siguientes son válidos:\n",
+            'precisam_ser_iguais':"Los campos deben coincidir:\n",
+            'precisa_no_minimo_caract':"- nomeInput debe ser de al menos minCharacters caracteres.\n",
+            'ocorreu_erro':"Vaya, hubo algunos errores:\n"
         }
     };
 };
