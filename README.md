@@ -6,7 +6,7 @@ Plugin in jQuery to validate your forms using ajax or not. A validation differen
 * No need for CSS;
 * Possible create confirmation message to submiter form (optional);
 * Validates all kinds of inputs: input, select, checkbox, radio and textarea;
-* Possible submit in AJAX ** ** or standard;
+* Possible submit in **AJAX** or standard;
 * **Callbacks** for AJAX method (success and error);
 * Allows you to create your own validations (custom);
 * Specific, personalized methods for success and validation error;
