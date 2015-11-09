@@ -64,7 +64,7 @@ Data Attributes	      | Description
 ---						        | ---
 `data-required`		    | With "true" or "" false "reports whether the input is required or not (ex .: ``` <input name="name" data-required="true"/> ```).
 `data-title`		      | Display name for the input, but can be replaced with a label containing the element name (ex .: ``` <input name="name" data-required="true" data-title="Name" /> ```).
-`data-equals`		      | When a field needs to be the same as another, much used in passwords (ex .: ``` <input name="pass" data-required="true" data-title="repass" /> ```).
+`data-equals`		      | When a field needs to be the same as another, much used in passwords (ex .: ``` <input name="pass" data-required="true" data-title="Password" data-equals="repass" /> ```).
 
 ---
 
@@ -149,3 +149,7 @@ Data Attributes	      | Description
         $('#my-form').formValidator();
     });
 ```
+---
+### Donate to help: [Click Here] (https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=ericferreira1992%40gmail%2ecom&lc=BR&item_name=Eric%20Github&currency_code=BRL&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
+---
+### Send email to support: [ericferreira1992@gmail.com] (mailto://ericferreira1992@gmail.com)
