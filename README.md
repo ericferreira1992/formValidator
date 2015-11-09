@@ -1,6 +1,12 @@
 # FormValidator
 Plugin in jQuery to validate your forms using ajax or not. A validation differently!
 
+---
+
+### Install (npm)
+```
+npm install form-validator-jq
+```
 ### Features
 * Validation of any form;
 * No need for CSS;
