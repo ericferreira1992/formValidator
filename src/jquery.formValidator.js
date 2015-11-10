@@ -103,7 +103,7 @@ $.fn.formValidator = function(options) {
             }
 
             if(!settings.erro){
-                settings.alertaErro = languages.getAttribute(settings.lang).valores_invalidos;
+                settings.alertaErro = languages[settings.lang].valores_invalidos;
                 $(this).find('input[data-min-characters], textarea[data-min-characters]').map(function(){
                     var minCharacters = parseInt($(this).data("min-characters"));
                     if($(this).val().length < minCharacters){
