@@ -72,6 +72,7 @@ Data Attributes	      | Description
 `data-required`		    | With "true" or "" false "reports whether the input is required or not (ex .: ``` <input name="name" data-required="true"/> ```).
 `data-title`		      | Display name for the input, but can be replaced with a label containing the element name (ex .: ``` <input name="name" data-required="true" data-title="Name" /> ```).
 `data-equals`		      | When a field needs to be the same as another, much used in passwords (ex .: ``` <input name="pass" data-required="true" data-title="Password" data-equals="repass" /> ```).
+`data-min-characters`		      | Restrict the minimum amount of characters that the field has (ex .: ``` <input name="pass" data-required="true" data-title="Password" data-min-characters="8" /> ```).
 
 ---
 
