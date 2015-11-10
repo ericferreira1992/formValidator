@@ -1,4 +1,4 @@
-# FormValidator
+# FormValidator (v1.0.2)
 Plugin in jQuery to validate your forms using ajax or not. A validation differently!
 
 ---
