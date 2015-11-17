@@ -171,8 +171,8 @@ $.fn.formValidator = function(options) {
                 }
             }
             else{
-                settings.submitEnable = false;
                 $(settings.thisForm).submit();
+                settings.submitEnable = false;
             }
         }
         else{//ERROR
